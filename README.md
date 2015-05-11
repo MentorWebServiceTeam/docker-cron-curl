@@ -5,7 +5,7 @@ Simple cron service that curls a target url. Can be either a fully qualified dom
 
 This example links a python web app and cURLs it automatically detecting which port is exposed.
 
-```docker run --name cron_curl --link sentry:sentry -e curl_target=http://sentry -e cron_interval="* * * * *"  docker run --name test_cron -e curl_target=http://www.google.com -e cron_interval="* * * * *" cron-curl```
+```docker run --name cron_curl --link sentry:sentry -e curl_target=http://sentry -e cron_interval="* * * * *" -e cron_interval="* * * * *" cron-curl```
 
 This example cURLs a fully qualified domain every 5 minutes
 
