@@ -1,6 +1,6 @@
 #!/bin/sh
 link_target=$(echo $curl_target | awk -F/ '{print $3}')
-linked=$(printenv | echo $(grep "\<$link_target_PORT_.*_TCP_PORT\>"))
+linked=$(printenv | grep "\<$link_target_PORT_.*_TCP_PORT\>" | head -n 1)
 if [ ! -z "$linked" ]; then
     link_port=$(echo $linked | cut -d'=' -f2)
     curl_target=$(echo "$curl_target" | awk -F/ -v var="$link_target:$link_port" 'gsub($3,var,$0)')
