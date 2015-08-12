@@ -10,3 +10,7 @@ This example links a python web app and cURLs it automatically detecting which p
 This example cURLs a fully qualified domain every 5 minutes
 
 ```docker run --name cron_curl -e curl_target=http://www.google.com -e cron_interval="*/5 * * * *" cron-curl```
+
+You can pass in silent variable to make cron less chatty
+
+```docker run --name cron_curl -e curl_target=http://www.google.com -e cron_interval="* * * * *" -e silent=true cron-curl```
